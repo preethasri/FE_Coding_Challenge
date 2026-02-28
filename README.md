@@ -5,7 +5,7 @@ Tech Stacks : React and Vite
 
 
 
-To run the app  in local use command - npm run dev 
+To run the app  in local use command - npm install & npm run dev 
 
 
 
