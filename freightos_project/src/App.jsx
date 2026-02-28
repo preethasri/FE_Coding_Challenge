@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Character from "./Character";
+import { API_ENDPOINT } from "./constants";
+import Pagination from "./Pagination";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -31,7 +33,7 @@ function App() {
         setLoading(true);
         setError("");
         const response = await axios.get(
-          "https://rickandmortyapi.com/api/character/",
+          API_ENDPOINT,
           {
             params: {
               page: page,
@@ -90,38 +92,12 @@ function App() {
               return <Character key={character?.id} character={character} />;
             })}
         </div>
-        <div className="pagination-container">
-          {totalCount > 0 && (
-            <>
-              <button
-                onClick={() => {
-                  setPage((page) => page - 1);
-                }}
-              >
-                {"<"}
-              </button>
-              {Array.from({ length: paginationLength }, (_, i) => {
-                const pageNum = i + 1;
-                return (
-                  <button
-                    key={pageNum}
-                    className={page === pageNum ? "active" : ""}
-                    onClick={() => handlePageChange(pageNum)}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
-              <button
-                onClick={() => {
-                  setPage((page) => page + 1);
-                }}
-              >
-                {">"}
-              </button>
-            </>
-          )}
-        </div>
+       <Pagination 
+       totalCount={totalCount} 
+       paginationLength={paginationLength}
+       page={page}
+       setPage={setPage}
+       handlePageChange={handlePageChange} />
       </div>
     </>
   );
