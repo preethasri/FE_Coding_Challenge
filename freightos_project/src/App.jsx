@@ -3,6 +3,8 @@ import axios from "axios";
 import Character from "./Character";
 import { API_ENDPOINT } from "./constants";
 import Pagination from "./Pagination";
+import Header from "./Header";
+import Characters from "./Characters";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -60,45 +62,16 @@ function App() {
 
   return (
     <>
-      <h3>The Rick and Morty</h3>
-
-      <input
-        placeholder="Search a Character"
-        value={filters?.search}
-        onChange={(e) => handleApplyFilters("search", e.target.value)}
-        className="search-input"
-      />
-
-      <select
-        className="character-status-select"
-        value={filters?.status}
-        onChange={(e) => {
-          handleApplyFilters("status", e.target.value);
-        }}
-      >
-        <option value=""> All</option>
-        <option value="alive">Alive</option>
-        <option value="dead">Dead</option>
-      </select>
-
-      <div className="main-container">
-        {loading && <div>Loading...</div>}
-        {error && <div>{error}</div>}
-
-        <div className="card-container">
-          {list?.length > 0 &&
-            !loading &&
-            list?.map((character) => {
-              return <Character key={character?.id} character={character} />;
-            })}
-        </div>
-       <Pagination 
+   
+      <Header  filters={filters} handleApplyFilters={handleApplyFilters}/>
+      <Characters list={list} loading={loading} error={error} />
+      <Pagination 
        totalCount={totalCount} 
        paginationLength={paginationLength}
        page={page}
        setPage={setPage}
        handlePageChange={handlePageChange} />
-      </div>
+     
     </>
   );
 }
