@@ -1,0 +1,29 @@
+.character-card {
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding: 0.65rem;
+  border: 1px solid #d8d2c8;
+  background-color: #d8d2c8;
+  color: black;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 200px;
+}
+.character-image img {
+  height: 180px;
+}
+
+@media (max-width: 700px) {
+  .character-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .character-card {
+    height: auto;
+  }
+}
