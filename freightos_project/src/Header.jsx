@@ -3,7 +3,7 @@
 const Header = ({filters,handleApplyFilters}) => {
   return (
     <>
-    <h3>The Rick and Morty</h3>
+    <h2 className="header">The Rick and Morty</h2>
 
     <input
         placeholder="Search a Character"

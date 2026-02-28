@@ -2,6 +2,9 @@
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.header{
+  text-align: center;
+}
 .card-container {
   display: flex;
   align-items: center;
@@ -41,7 +44,6 @@
   margin:10px;
   border-radius: 6px;
   border:1px solid #f1f1f1;
-
 
 }
 
