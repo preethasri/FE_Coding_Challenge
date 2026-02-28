@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Pagination = ({totalCount,paginationLength=0,setPage,handlePageChange,page}) => {
+    console.log(paginationLength)
   return (
      <div className="pagination-container">
           {totalCount > 0 && (

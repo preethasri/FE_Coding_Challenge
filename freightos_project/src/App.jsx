@@ -16,8 +16,7 @@ function App() {
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const paginationLength = totalCount / 20;
-
+  const paginationLength = Math.ceil(totalCount / 20)
   const handlePageChange = (currentPage) => {
     setPage(currentPage);
   };

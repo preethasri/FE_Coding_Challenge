@@ -1,3 +1,7 @@
+*{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .card-container {
   display: flex;
   align-items: center;
